@@ -1,0 +1,73 @@
+/*
+ * tokens.css — the ONLY file that holds colour literals (Rule 4, palette rule).
+ * Provenance (every hex was sampled, none invented):
+ *   brand/LOGO OPEN PNG.png      5x5 mean at fixed points (IHDR RGBA 2000x2000)
+ *     --c-logo-bg  #1a1826  corner pixel, flat backdrop of the logo plate
+ *     --c-face     #cea9e1  mid face of the "O"
+ *     --c-shade    #885fac  lower-right shade of the "O"
+ *     --c-ink      #fbf7fc  specular highlight of the "O"  (used as the page text colour)
+ *   reference/OPEN 1.jpg.jpeg    5x5 mean / brightest-pixel scan (1600x900)
+ *     --c-bg       #0c043b  deep backdrop, upper-mid
+ *     --c-surface  #0f063b  deep backdrop, top
+ *     --c-panel    #180951  backdrop, right of centre
+ *     --c-floor    #17075f  floor plane
+ *     --c-accent   #c592ff  brightest grid line
+ *     --c-glow     #8f41f5  halo beside the "O"
+ *     --c-reflect  #ab70ee  floor reflection of the "O"
+ *   semantic gain/loss — read from the reference site's own stylesheet (--up / --down), not present in brand art:
+ *     --c-up       #67bfa6
+ *     --c-down     #dc8585
+ * Everything else is colour-mix() of the above.
+ */
+:root {
+  color-scheme: dark;
+  --c-logo-bg: #1a1826;
+  --c-face: #cea9e1;
+  --c-shade: #885fac;
+  --c-ink: #fbf7fc;
+  --c-bg: #0c043b;
+  --c-surface: #0f063b;
+  --c-panel: #180951;
+  --c-floor: #17075f;
+  --c-accent: #c592ff;
+  --c-glow: #8f41f5;
+  --c-reflect: #ab70ee;
+  --c-up: #67bfa6;
+  --c-down: #dc8585;
+
+  --color-accent: var(--c-accent);
+  --color-ink: var(--c-ink);
+  --color-ink-2: color-mix(in srgb, var(--c-ink) 72%, var(--c-bg));
+  --color-ink-3: color-mix(in srgb, var(--c-ink) 48%, var(--c-bg));
+  --color-line: color-mix(in srgb, var(--c-accent) 20%, transparent);
+  --color-line-strong: color-mix(in srgb, var(--c-accent) 42%, transparent);
+  --color-hover: color-mix(in srgb, var(--c-accent) 9%, transparent);
+  --color-track: color-mix(in srgb, var(--c-accent) 14%, var(--c-bg));
+  --color-surface: var(--c-surface);
+  --color-panel: color-mix(in srgb, var(--c-panel) 78%, transparent);
+  --color-up: var(--c-up);
+  --color-down: var(--c-down);
+  --color-on-accent: var(--c-bg);
+
+  --font-display: "Fredoka Variable", "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Manrope Variable", "Manrope", system-ui, sans-serif;
+  --font-mono: "Red Hat Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* measured off the reference stylesheet */
+  --radius-panel: 12px;
+  --radius-control: 8px;
+  --radius-pill: 999px;
+  --container-page: 1392px;
+  --gutter: clamp(0.9375rem, 0.75rem + 0.8333vi, 1.5rem);
+  --dur-80: 80ms;
+  --dur-120: 120ms;
+  --dur-160: 160ms;
+  --dur-240: 240ms;
+  --dur-tick: 600ms;
+  --ease-tick: cubic-bezier(0.2, 0, 0, 1);
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --display-leading: 1.08;
+  --display-tracking: -0.03em;
+  --display-weight: 700;
+}

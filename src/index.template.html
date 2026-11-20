@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Open — an open window onto Solana coins</title>
+<meta name="description" content="The Open is a Solana coin board and launch window. Watch what is moving, right now, in one place.">
+<meta name="theme-color" content="{{THEME}}">
+<link rel="icon" type="image/svg+xml" sizes="32x32" href="./favicon.svg">
+<link rel="apple-touch-icon" href="./brand/logo-192.png">
+<link rel="preload" href="./fonts/fredoka.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="./brand/logo-192.png">
+<link rel="stylesheet" href="./css/tokens.css">
+<link rel="stylesheet" href="./css/fonts.css">
+<link rel="stylesheet" href="./css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="top" id="top">
+  <div class="wrap">
+    {{CA_SLOT}}
+    <header class="bar">
+      <a class="brand" href="#top" aria-label="The Open home"><img src="./brand/logo-96.png" width="40" height="40" alt=""><span>The Open</span></a>
+      <nav class="nav" aria-label="Primary" id="nav">
+        <a href="#board">Board</a><a href="#why">Why</a><a href="#path">Path</a><a href="#faq">FAQ</a>
+      </nav>
+      <div class="right">
+        <span class="pill" id="status" data-status="loading" role="status"><span class="dot" aria-hidden="true"></span><span id="status-text">Syncing</span></span>
+        {{SOCIAL}}
+      </div>
+    </header>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="hero" aria-label="Introduction" id="hero">
+    <div class="mesh" aria-hidden="true" data-depth="0.15"><i></i><i></i><i></i></div>
+    <div class="hero-waves" id="waves" aria-hidden="true"></div>
+    <div class="hero-in">
+      <div class="hero-copy">
+        <h1 class="display enter-up">Step through. <em>The Open</em> is awake.</h1>
+        <p class="lead enter-up" style="--d:60ms">A bright, fast doorway onto Solana coins. See what is climbing, what is cooling, and where the liquidity sits, then make your own call.</p>
+        <div class="cta-row enter-up" style="--d:120ms">
+          <a class="btn btn-primary" href="#board">See the board</a>
+          <a class="btn btn-ghost" href="#why">How it works</a>
+        </div>
+      </div>
+      <div class="orb" aria-hidden="true" data-depth="-0.9"><div class="orb-wrap"><img src="./brand/logo-512.png" width="512" height="512" alt="" id="hero-logo"></div></div>
+      <dl class="stats" data-reveal>
+        <div><dt>Rows live</dt><dd id="st-count">—</dd></div>
+        <div><dt>Turnover</dt><dd id="st-vol">—</dd></div>
+        <div><dt>Network</dt><dd>Solana</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="ticker" id="ticker" aria-label="Live coin ticker"><div class="ticker-track" id="ticker-track"></div></div>
+
+  <section class="board" id="board" aria-label="Market board">
+    <div class="panel toolbar-panel">
+      <div class="toolbar">
+        <label class="search"><span class="sr-only">Find a token</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Symbol, title, pasted key">
+        </label>
+        <div class="seg" role="group" aria-label="Order rows by" id="seg">
+          <button type="button" data-sort="boost" aria-pressed="true">Boosted</button>
+          <button type="button" data-sort="gain" aria-pressed="false">Gainers</button>
+          <button type="button" data-sort="turn" aria-pressed="false">Turnover</button>
+          <button type="button" data-sort="depth" aria-pressed="false">Depth</button>
+        </div>
+      </div>
+      <p class="gate-note" id="gate-note" role="status" data-show="false"></p>
+    </div>
+    <div class="board-head">
+      <h2>The board</h2>
+      <div class="board-meta"><span class="mono" id="count">—</span><span class="eyebrow live" id="live" data-status="loading"><span class="dot" aria-hidden="true"></span><span id="live-text">Syncing</span></span></div>
+    </div>
+    <div class="bar-load" id="bar-load" data-busy="true" aria-hidden="true"></div>
+    <div class="table" id="table">
+      <div class="th" aria-hidden="true"><span>#</span><span>Coin</span><span>Price</span><span>Day</span><span>Turnover</span><span>Depth</span></div>
+      <div id="rows" aria-live="off"></div>
+    </div>
+  </section>
+
+  <section class="section" id="why" aria-label="Why The Open">
+    <h2 class="display" data-reveal>Built to be seen through.</h2>
+    <p class="sub" data-reveal>Three habits shape every pixel here.</p>
+    <div class="grid3">
+      <article class="card" data-reveal data-spot><span class="num-i">01</span><h3 class="display">Fresh by default</h3><p>Rows refresh on their own while you watch and rest while you look away. Nothing here needs a reload to stay honest.</p></article>
+      <article class="card" data-reveal data-spot><span class="num-i">02</span><h3 class="display">One address, one truth</h3><p>The contract bar at the top is the single source for our token. If it is empty, nothing has been announced. Trust it over any screenshot.</p></article>
+      <article class="card" data-reveal data-spot><span class="num-i">03</span><h3 class="display">Quiet when unsure</h3><p>A missing figure shows a dash. A failed source keeps the last good numbers on screen instead of guessing.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="path" aria-label="Path">
+    <h2 class="display" data-reveal>The way forward.</h2>
+    <p class="sub" data-reveal>Four stages, in order. No promises about timing.</p>
+    <div class="steps">
+      <article class="card step" data-reveal data-spot data-on="true"><span class="tag">Now</span><h3 class="display">Open the window</h3><p>Live board, ticker and contract bar go up for everyone.</p></article>
+      <article class="card step" data-reveal data-spot><span class="tag">Next</span><h3 class="display">Announce the token</h3><p>The contract address is stated once, in one place, and the board adopts it.</p></article>
+      <article class="card step" data-reveal data-spot><span class="tag">Then</span><h3 class="display">Widen the lens</h3><p>Deeper per-coin pages, saved watchlists and comparisons.</p></article>
+      <article class="card step" data-reveal data-spot><span class="tag">Later</span><h3 class="display">Hand over the keys</h3><p>Creators launch straight from the window, community steers what ships.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-label="Questions">
+    <h2 class="display" data-reveal>Plain answers.</h2>
+    <div class="faq">
+      <details data-reveal><summary>Which address is real?</summary><p>Only the one printed on the bar at the very top, once it appears. Anything else pasted elsewhere should be ignored.</p></details>
+      <details data-reveal><summary>Where do the numbers come from?</summary><p>A public Solana market feed. Rows list the most boosted coins on the network, nothing hand picked.</p></details>
+      <details data-reveal><summary>Why is a row showing dashes?</summary><p>The feed had no figure for it, or could not be reached. The board keeps the last good values and retries quietly.</p></details>
+      <details data-reveal><summary>Is this advice?</summary><p>No. It is a window, not a recommendation. Coins swing hard and can go to zero.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top"><img src="./brand/logo-96.png" width="40" height="40" alt=""><span>The Open</span></a>
+    <p>theopen.fun. Market figures come from third-party feeds and are shown as received. Nothing on this page is financial advice.</p>
+  </div>
+</footer>
+
+<nav class="mnav" aria-label="Compact menu" id="mnav"><ul>
+  <li><a href="#board">Board</a></li><li><a href="#why">Why</a></li><li><a href="#path">Path</a></li><li><a href="#faq">FAQ</a></li>
+</ul></nav>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

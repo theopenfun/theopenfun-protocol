@@ -1,0 +1,16 @@
+{
+  "ca":     { "state": "absent", "value": null },
+  "x":      { "state": "absent", "url": null },
+  "github": { "state": "absent", "url": null },
+  "market": {
+    "state": "stated",
+    "chain": "solana",
+    "rpc": "https://solana-rpc.publicnode.com",
+    "boosts": "https://api.dexscreener.com/token-boosts/top/v1",
+    "tokens": "https://api.dexscreener.com/tokens/v1/solana/",
+    "pairs": "https://api.dexscreener.com/latest/dex/tokens/",
+    "pump": "https://frontend-api.pump.fun/coins/",
+    "pollMs": 60000,
+    "take": 10
+  }
+}
